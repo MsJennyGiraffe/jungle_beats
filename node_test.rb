@@ -13,6 +13,9 @@ class NodeTest < Minitest::Test
   def test_can_append_to_the_end
     skip
     jb = JungleBeats.new("deep dep dep deep")
+    #assert_equal "deep dep dep deep", jb.all
+    #jb.append "deep dep deep"
+    #assert_equal "deep dep dep deep deep dep deep"
 
   end
 
@@ -26,11 +29,14 @@ class NodeTest < Minitest::Test
     refute jb.includes?("derp")
   end
 
-  def test_returns_all_beats
-    jb = JungleBeats.new("deep dep dep deep")
-    assert_equal "deep dep dep deep", jb.all
+  def test_prepend_beat
+    skip
+
   end
 
-
+  def test_position
+    jb = JungleBeats.new("deep dep dep deep")
+    assert_equal 1, jb.position("dep")
+  end
 
 end

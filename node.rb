@@ -2,18 +2,19 @@ require 'pry'
 require_relative 'jungle_beets'
 
 class Node
-  def initialize(beat, position = 0)
+  attr_accessor :next_node
+  attr_accessor :beat
+
+  def initialize(beat)
     @beat = beat
     @next_node = nil
-    @position = position
   end
 
-
-  def append(beat, position)
+  def append(beat)
     if @next_node == nil
-      @next_node = Node.new(beat, position)
+      @next_node = Node.new(beat)
     else
-      @next_node.append(beat, position + 1)
+      @next_node.append(beat)
     end
   end
 
@@ -35,12 +36,13 @@ class Node
     end
   end
 
-  def all
-    if @head_node != nil
-      @head_node
-    else
-      @head_node.all
-    end
-  end
+ def insert
+ end
+
+ def pop
+ end
+
+ def find
+ end
 
 end
